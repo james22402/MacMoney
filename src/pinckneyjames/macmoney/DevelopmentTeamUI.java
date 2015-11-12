@@ -1,3 +1,5 @@
+package pinckneyjames.macmoney;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -17,7 +19,12 @@ public class DevelopmentTeamUI implements ActionListener {
 			upgrade7, upgrade8, upgrade9;
 
 	public DevelopmentTeamUI() {
-		devGUI();
+		try {
+			devGUI();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -26,6 +33,7 @@ public class DevelopmentTeamUI implements ActionListener {
 	}
 
 	public void devGUI() {
+		@SuppressWarnings("unused")
 		UI color = new UI();
 
 		frame = new JFrame("Development Store");
@@ -33,13 +41,13 @@ public class DevelopmentTeamUI implements ActionListener {
 		frame.setLayout(null);
 		frame.setSize(640, 600);
 		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout());
 
 		gamePanel = new JPanel();
 		gamePanel.setVisible(true);
 		gamePanel.setLayout(null);
-		gamePanel.setBackground(color.five);
+		gamePanel.setBackground(UI.five);
 		frame.add(gamePanel);
 
 		goBack = new JButton("Back To Game");
@@ -54,8 +62,8 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		// All the damn JButtons
 		buyItem1 = new JButton("~Purchase~");
-		buyItem1.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem1.setSize(75, 25);
+		buyItem1.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem1.setSize(100, 25);
 		buyItem1.setLocation(450, 30);
 		buyItem1.setActionCommand("buyItem1");
 		buyItem1.addActionListener(this);
@@ -64,8 +72,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		gamePanel.add(buyItem1);
 		// Macintosh Portable
 		buyItem2 = new JButton("~Purchase~");
-		buyItem2.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem2.setSize(75, 25);
+		buyItem2.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem2.setSize(100, 25);
 		buyItem2.setLocation(450, 70);
 		buyItem2.setActionCommand("buyItem2");
 		buyItem2.addActionListener(this);
@@ -74,8 +82,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		gamePanel.add(buyItem2);
 		// Powerbook 100
 		buyItem3 = new JButton("~Purchase~");
-		buyItem3.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem3.setSize(75, 25);
+		buyItem3.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem3.setSize(100, 25);
 		buyItem3.setLocation(450, 108);
 		buyItem3.setActionCommand("buyItem3");
 		buyItem3.addActionListener(this);
@@ -84,8 +92,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		gamePanel.add(buyItem3);
 		// Quadra 610
 		buyItem4 = new JButton("~Purchase~");
-		buyItem4.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem4.setSize(75, 25);
+		buyItem4.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem4.setSize(100, 25);
 		buyItem4.setLocation(450, 148);
 		buyItem4.setActionCommand("buyItem4");
 		buyItem4.addActionListener(this);
@@ -94,8 +102,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		gamePanel.add(buyItem4);
 		// eMac G4
 		buyItem5 = new JButton("~Purchase~");
-		buyItem5.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem5.setSize(75, 25);
+		buyItem5.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem5.setSize(100, 25);
 		buyItem5.setLocation(450, 198);
 		buyItem5.setActionCommand("buyItem5");
 		buyItem5.addActionListener(this);
@@ -104,8 +112,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		gamePanel.add(buyItem5);
 		// iBook
 		buyItem6 = new JButton("~Purchase~");
-		buyItem6.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem6.setSize(75, 25);
+		buyItem6.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem6.setSize(100, 25);
 		buyItem6.setLocation(450, 249);
 		buyItem6.setActionCommand("buyItem6");
 		buyItem6.addActionListener(this);
@@ -114,8 +122,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		gamePanel.add(buyItem6);
 		// iMac
 		buyItem7 = new JButton("~Purchase~");
-		buyItem7.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem7.setSize(75, 25);
+		buyItem7.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem7.setSize(100, 25);
 		buyItem7.setLocation(450, 299);
 		buyItem7.setActionCommand("buyItem7");
 		buyItem7.addActionListener(this);
@@ -124,8 +132,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		gamePanel.add(buyItem7);
 		// MacBook
 		buyItem8 = new JButton("~Purchase~");
-		buyItem8.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem8.setSize(75, 25);
+		buyItem8.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem8.setSize(100, 25);
 		buyItem8.setLocation(450, 350);
 		buyItem8.setActionCommand("buyItem8");
 		buyItem8.addActionListener(this);
@@ -134,8 +142,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		gamePanel.add(buyItem8);
 		// Mac Pro
 		buyItem9 = new JButton("~Purchase~");
-		buyItem9.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem9.setSize(75, 25);
+		buyItem9.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem9.setSize(100, 25);
 		buyItem9.setLocation(450, 398);
 		buyItem9.setActionCommand("buyItem9");
 		buyItem9.addActionListener(this);
@@ -147,7 +155,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade1 = new JLabel("After School Club            $1250.00 ");
 		upgrade1.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade1.setForeground(color.two);
+		upgrade1.setForeground(UI.two);
 		upgrade1.setSize(400, 20);
 		upgrade1.setLocation(50, 30);
 		upgrade1.setVisible(true);
@@ -155,7 +163,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade2 = new JLabel("Group of Friends             $3250.00");
 		upgrade2.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade2.setForeground(color.two);
+		upgrade2.setForeground(UI.two);
 		upgrade2.setSize(400, 20);
 		upgrade2.setLocation(50, 70);
 		upgrade2.setVisible(true);
@@ -163,7 +171,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade3 = new JLabel("Small Buisness Dev Team      $9250.00");
 		upgrade3.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade3.setForeground(color.two);
+		upgrade3.setForeground(UI.two);
 		upgrade3.setSize(400, 20);
 		upgrade3.setLocation(50, 110);
 		upgrade3.setVisible(true);
@@ -171,7 +179,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade4 = new JLabel("Executive Buisness Team     $13000.00");
 		upgrade4.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade4.setForeground(color.two);
+		upgrade4.setForeground(UI.two);
 		upgrade4.setSize(400, 20);
 		upgrade4.setLocation(50, 150);
 		upgrade4.setVisible(true);
@@ -179,7 +187,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade5 = new JLabel("Apple Dev Team              $31500.00");
 		upgrade5.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade5.setForeground(color.two);
+		upgrade5.setForeground(UI.two);
 		upgrade5.setSize(400, 20);
 		upgrade5.setLocation(50, 200);
 		upgrade5.setVisible(true);
@@ -187,7 +195,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade6 = new JLabel("Personal Dev Team          $100000.00");
 		upgrade6.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade6.setForeground(color.two);
+		upgrade6.setForeground(UI.two);
 		upgrade6.setSize(400, 20);
 		upgrade6.setLocation(50, 250);
 		upgrade6.setVisible(true);
@@ -195,7 +203,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade7 = new JLabel("National Dev Team          $375000.00");
 		upgrade7.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade7.setForeground(color.two);
+		upgrade7.setForeground(UI.two);
 		upgrade7.setSize(400, 20);
 		upgrade7.setLocation(50, 300);
 		upgrade7.setVisible(true);
@@ -203,7 +211,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade8 = new JLabel("Interplanetary Dev Team   $1800000.00");
 		upgrade8.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade8.setForeground(color.two);
+		upgrade8.setForeground(UI.two);
 		upgrade8.setSize(400, 20);
 		upgrade8.setLocation(50, 350);
 		upgrade8.setVisible(true);
@@ -211,7 +219,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 		upgrade9 = new JLabel("Galactic Dev Team        $25000000.00");
 		upgrade9.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade9.setForeground(color.two);
+		upgrade9.setForeground(UI.two);
 		upgrade9.setSize(400, 20);
 		upgrade9.setLocation(50, 400);
 		upgrade9.setVisible(true);
@@ -228,9 +236,9 @@ public class DevelopmentTeamUI implements ActionListener {
 		} else if (e.getActionCommand().equals("buyItem1")) {
 
 			if (test1.getUserCreditAmount() >= 1250) {
-				UI.coderCreditAmount = 2;
+				UI.coderCreditAmount += 2;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 1250);
 				frame.setVisible(false);
 				frame.dispose();
@@ -241,9 +249,9 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem2")) {
 			if (test1.getUserCreditAmount() >= 3250) {
-				UI.coderCreditAmount = 5;
+				UI.coderCreditAmount += 5;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 3250);
 				frame.setVisible(false);
 				frame.dispose();
@@ -254,9 +262,9 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem3")) {
 			if (test1.getUserCreditAmount() >= 9250) {
-				UI.coderCreditAmount = 25;
+				UI.coderCreditAmount += 25;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 9250);
 				frame.setVisible(false);
 				frame.dispose();
@@ -267,9 +275,9 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem4")) {
 			if (test1.getUserCreditAmount() >= 13000) {
-				UI.coderCreditAmount = 85;
+				UI.coderCreditAmount += 85;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 13000);
 				frame.setVisible(false);
 				frame.dispose();
@@ -280,9 +288,9 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem5")) {
 			if (test1.getUserCreditAmount() >= 31500) {
-				UI.coderCreditAmount = 210;
+				UI.coderCreditAmount += 210;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 31500);
 				frame.setVisible(false);
 				frame.dispose();
@@ -293,9 +301,9 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem6")) {
 			if (test1.getUserCreditAmount() >= 100000) {
-				UI.coderCreditAmount = 475;
+				UI.coderCreditAmount += 475;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 100000);
 				frame.setVisible(false);
 				frame.dispose();
@@ -306,9 +314,9 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem7")) {
 			if (test1.getUserCreditAmount() >= 375000) {
-				UI.coderCreditAmount = 1000;
+				UI.coderCreditAmount += 1000;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 375000);
 				frame.setVisible(false);
 				frame.dispose();
@@ -319,9 +327,9 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem8")) {
 			if (test1.getUserCreditAmount() >= 1800000) {
-				UI.coderCreditAmount = 2000;
+				UI.coderCreditAmount += 2000;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 1800000);
 				frame.setVisible(false);
 				frame.dispose();
@@ -332,9 +340,9 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem9")) {
 			if (test1.getUserCreditAmount() >= 25000000) {
-				UI.coderCreditAmount = 5000;
+				UI.coderCreditAmount += 5000;
 				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
-						+ "€ Credit");
+						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 25000000);
 				frame.setVisible(false);
 				frame.dispose();

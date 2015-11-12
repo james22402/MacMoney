@@ -1,3 +1,5 @@
+package pinckneyjames.macmoney;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -15,9 +17,13 @@ public class ComputerStoreUI implements ActionListener {
 			buyItem7, buyItem8, buyItem9;
 	JLabel upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6,
 			upgrade7, upgrade8, upgrade9;
+	//UI ui;
+	//double pci;
 
 	public ComputerStoreUI() {
 		cpuGUI();
+		//ui = new UI();
+		//pci = ui.getPCI();
 	}
 
 	public void setVisibility(boolean a) {
@@ -26,7 +32,7 @@ public class ComputerStoreUI implements ActionListener {
 	}
 
 	public void cpuGUI() {
-		UI color = new UI();
+		//UI color = new UI();
 
 		// Computer Store JFrame
 		frame = new JFrame("Computer Store");
@@ -34,14 +40,14 @@ public class ComputerStoreUI implements ActionListener {
 		frame.setLayout(null);
 		frame.setSize(640, 600);
 		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout());
 
 		// JPanel
 		gamePanel = new JPanel();
 		gamePanel.setVisible(true);
 		gamePanel.setLayout(null);
-		gamePanel.setBackground(color.five);
+		gamePanel.setBackground(UI.five);
 		frame.add(gamePanel);
 
 		// JButton
@@ -57,8 +63,8 @@ public class ComputerStoreUI implements ActionListener {
 
 		// Mac XL:
 		buyItem1 = new JButton("~Purchase~");
-		buyItem1.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem1.setSize(75, 25);
+		buyItem1.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem1.setSize(100, 25);
 		buyItem1.setLocation(450, 30);
 		buyItem1.setActionCommand("buyItem1");
 		buyItem1.addActionListener(this);
@@ -67,8 +73,8 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem1);
 		// Macintosh Portable
 		buyItem2 = new JButton("~Purchase~");
-		buyItem2.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem2.setSize(75, 25);
+		buyItem2.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem2.setSize(100, 25);
 		buyItem2.setLocation(450, 70);
 		buyItem2.setActionCommand("buyItem2");
 		buyItem2.addActionListener(this);
@@ -77,8 +83,8 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem2);
 		// Powerbook 100
 		buyItem3 = new JButton("~Purchase~");
-		buyItem3.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem3.setSize(75, 25);
+		buyItem3.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem3.setSize(100, 25);
 		buyItem3.setLocation(450, 108);
 		buyItem3.setActionCommand("buyItem3");
 		buyItem3.addActionListener(this);
@@ -87,8 +93,8 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem3);
 		// Quadra 610
 		buyItem4 = new JButton("~Purchase~");
-		buyItem4.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem4.setSize(75, 25);
+		buyItem4.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem4.setSize(100, 25);
 		buyItem4.setLocation(450, 148);
 		buyItem4.setActionCommand("buyItem4");
 		buyItem4.addActionListener(this);
@@ -97,8 +103,8 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem4);
 		// eMac G4
 		buyItem5 = new JButton("~Purchase~");
-		buyItem5.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem5.setSize(75, 25);
+		buyItem5.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem5.setSize(100, 25);
 		buyItem5.setLocation(450, 198);
 		buyItem5.setActionCommand("buyItem5");
 		buyItem5.addActionListener(this);
@@ -107,8 +113,8 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem5);
 		// iBook
 		buyItem6 = new JButton("~Purchase~");
-		buyItem6.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem6.setSize(75, 25);
+		buyItem6.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem6.setSize(100, 25);
 		buyItem6.setLocation(450, 249);
 		buyItem6.setActionCommand("buyItem6");
 		buyItem6.addActionListener(this);
@@ -117,8 +123,8 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem6);
 		// iMac
 		buyItem7 = new JButton("~Purchase~");
-		buyItem7.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem7.setSize(75, 25);
+		buyItem7.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem7.setSize(100, 25);
 		buyItem7.setLocation(450, 299);
 		buyItem7.setActionCommand("buyItem7");
 		buyItem7.addActionListener(this);
@@ -127,8 +133,8 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem7);
 		// MacBook
 		buyItem8 = new JButton("~Purchase~");
-		buyItem8.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem8.setSize(75, 25);
+		buyItem8.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem8.setSize(100, 25);
 		buyItem8.setLocation(450, 350);
 		buyItem8.setActionCommand("buyItem8");
 		buyItem8.addActionListener(this);
@@ -137,8 +143,8 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem8);
 		// Mac Pro
 		buyItem9 = new JButton("~Purchase~");
-		buyItem9.setFont(new Font("Monospaced", Font.PLAIN, 8));
-		buyItem9.setSize(75, 25);
+		buyItem9.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		buyItem9.setSize(100, 25);
 		buyItem9.setLocation(450, 398);
 		buyItem9.setActionCommand("buyItem9");
 		buyItem9.addActionListener(this);
@@ -147,12 +153,9 @@ public class ComputerStoreUI implements ActionListener {
 		gamePanel.add(buyItem9);
 
 		// JLabel
-		upgrade1 = new JLabel("Mac XL                      $750.00 "); // TODO
-																		// needs
-																		// price
-
+		upgrade1 = new JLabel("Mac XL                      $750.00 "); 
 		upgrade1.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade1.setForeground(color.two);
+		upgrade1.setForeground(UI.two);
 		upgrade1.setSize(400, 20);
 		upgrade1.setLocation(50, 30);
 		upgrade1.setVisible(true);
@@ -160,7 +163,7 @@ public class ComputerStoreUI implements ActionListener {
 
 		upgrade2 = new JLabel("Macintosh Portable         $2500.00");
 		upgrade2.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade2.setForeground(color.two);
+		upgrade2.setForeground(UI.two);
 		upgrade2.setSize(400, 20);
 		upgrade2.setLocation(50, 70);
 		upgrade2.setVisible(true);
@@ -168,7 +171,7 @@ public class ComputerStoreUI implements ActionListener {
 
 		upgrade3 = new JLabel("Powerbook 100              $5500.00");
 		upgrade3.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade3.setForeground(color.two);
+		upgrade3.setForeground(UI.two);
 		upgrade3.setSize(400, 20);
 		upgrade3.setLocation(50, 110);
 		upgrade3.setVisible(true);
@@ -176,7 +179,7 @@ public class ComputerStoreUI implements ActionListener {
 
 		upgrade4 = new JLabel("Quadra 610                $13000.00");
 		upgrade4.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade4.setForeground(color.two);
+		upgrade4.setForeground(UI.two);
 		upgrade4.setSize(400, 20);
 		upgrade4.setLocation(50, 150);
 		upgrade4.setVisible(true);
@@ -184,7 +187,7 @@ public class ComputerStoreUI implements ActionListener {
 
 		upgrade5 = new JLabel("eMac G4                   $50000.00");
 		upgrade5.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade5.setForeground(color.two);
+		upgrade5.setForeground(UI.two);
 		upgrade5.setSize(400, 20);
 		upgrade5.setLocation(50, 200);
 		upgrade5.setVisible(true);
@@ -192,7 +195,7 @@ public class ComputerStoreUI implements ActionListener {
 
 		upgrade6 = new JLabel("iBook                    $150000.00");
 		upgrade6.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade6.setForeground(color.two);
+		upgrade6.setForeground(UI.two);
 		upgrade6.setSize(400, 20);
 		upgrade6.setLocation(50, 250);
 		upgrade6.setVisible(true);
@@ -200,7 +203,7 @@ public class ComputerStoreUI implements ActionListener {
 
 		upgrade7 = new JLabel("iMac                     $600000.00");
 		upgrade7.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade7.setForeground(color.two);
+		upgrade7.setForeground(UI.two);
 		upgrade7.setSize(400, 20);
 		upgrade7.setLocation(50, 300);
 		upgrade7.setVisible(true);
@@ -208,7 +211,7 @@ public class ComputerStoreUI implements ActionListener {
 
 		upgrade8 = new JLabel("MacBook                 $3000000.00");
 		upgrade8.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade8.setForeground(color.two);
+		upgrade8.setForeground(UI.two);
 		upgrade8.setSize(400, 20);
 		upgrade8.setLocation(50, 350);
 		upgrade8.setVisible(true);
@@ -216,7 +219,7 @@ public class ComputerStoreUI implements ActionListener {
 
 		upgrade9 = new JLabel("Mac Pro                $25000000.00");
 		upgrade9.setFont(new Font("Monospaced", Font.BOLD, 16));
-		upgrade9.setForeground(color.two);
+		upgrade9.setForeground(UI.two);
 		upgrade9.setSize(400, 20);
 		upgrade9.setLocation(50, 400);
 		upgrade9.setVisible(true);
@@ -235,9 +238,10 @@ public class ComputerStoreUI implements ActionListener {
 			test1.setVisibility(true);
 		} else if (e.getActionCommand().equals("buyItem1")) {
 			if (test1.getUserCreditAmount() >= 750) {
-				test1.setPCI(0.5);
+				//pci = test1.getPCI();
+				test1.setPCI(0.5 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 750);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
@@ -248,9 +252,10 @@ public class ComputerStoreUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem2")) {
 			if (test1.getUserCreditAmount() >= 2500) {
-				test1.setPCI(1.0);
+				//pci = test1.getPCI();
+				test1.setPCI(1.0 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 2500);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
@@ -261,9 +266,10 @@ public class ComputerStoreUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem3")) {
 			if (test1.getUserCreditAmount() >= 5500) {
-				test1.setPCI(2.0); // TODO Finish this
+				//pci = test1.getPCI();
+				test1.setPCI(2.0 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 5500);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
@@ -274,9 +280,10 @@ public class ComputerStoreUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem4")) {
 			if (test1.getUserCreditAmount() >= 13000) {
-				test1.setPCI(5.0);
+				//pci = test1.getPCI();
+				test1.setPCI(5.0 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 13000);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
@@ -288,9 +295,10 @@ public class ComputerStoreUI implements ActionListener {
 		} else if (e.getActionCommand().equals("buyItem5")) {
 
 			if (test1.getUserCreditAmount() >= 50000) {
-				test1.setPCI(20.0);
+				//pci = test1.getPCI();
+				test1.setPCI(20.0 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 50000);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
@@ -301,9 +309,10 @@ public class ComputerStoreUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem6")) {
 			if (test1.getUserCreditAmount() >= 150000) {
-				test1.setPCI(50.0);
+				//pci = test1.getPCI();
+				test1.setPCI(50.0 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 150000);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
@@ -314,9 +323,10 @@ public class ComputerStoreUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem7")) {
 			if (test1.getUserCreditAmount() >= 600000) {
-				test1.setPCI(100.0);
+				//pci = test1.getPCI();
+				test1.setPCI(100.0 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 600000);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
@@ -326,12 +336,10 @@ public class ComputerStoreUI implements ActionListener {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
 			 }
 		} else if (e.getActionCommand().equals("buyItem8")) {
-			System.out.println("Hello World");
 			if (test1.getUserCreditAmount() >= 3000000) {
-				System.out.println("Hi");
-				test1.setPCI(150.0);
+				test1.setPCI(150.0 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 3000000);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
@@ -342,9 +350,10 @@ public class ComputerStoreUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem9")) {
 			if (test1.getUserCreditAmount() >= 25000000) {
-				test1.setPCI(300.0);
+				//pci = test1.getPCI();
+				test1.setPCI(300.0 + test1.getPCI());
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 25000000);
-				UI.userCreditsPassive.setText(String.valueOf(test1.getPCI())
+				UI.userCreditsPassive.setText("Generating " + String.valueOf(test1.getPCI())
 						+ "/per second");
 				frame.setVisible(false);
 				frame.dispose();
