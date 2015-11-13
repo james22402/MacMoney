@@ -232,6 +232,7 @@ public class DevelopmentTeamUI implements ActionListener {
 			frame.setVisible(false);
 			frame.dispose();
 			test1.setVisibility(true);
+			
 
 		} else if (e.getActionCommand().equals("buyItem1")) {
 
@@ -243,6 +244,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -256,6 +258,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -269,6 +272,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -282,6 +286,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -295,6 +300,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -308,6 +314,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -321,6 +328,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -334,6 +342,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -347,6 +356,7 @@ public class DevelopmentTeamUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);

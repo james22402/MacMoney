@@ -236,6 +236,7 @@ public class ComputerStoreUI implements ActionListener {
 			frame.setVisible(false);
 			frame.dispose();
 			test1.setVisibility(true);
+			
 		} else if (e.getActionCommand().equals("buyItem1")) {
 			if (test1.getUserCreditAmount() >= 750) {
 				//pci = test1.getPCI();
@@ -246,6 +247,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -260,6 +262,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -274,6 +277,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -288,6 +292,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -303,6 +308,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -317,6 +323,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -331,6 +338,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -344,6 +352,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -358,6 +367,7 @@ public class ComputerStoreUI implements ActionListener {
 				frame.setVisible(false);
 				frame.dispose();
 				test1.setVisibility(true);
+				
 			}
 			else {
 			    JOptionPane.showMessageDialog(null, "You don't have enough money!", "Error!", JOptionPane.ERROR_MESSAGE);

@@ -56,13 +56,12 @@ public class UI implements ActionListener, Runnable {
 		five = new Color(253,226,130);
 		six = new Color(190,58,62);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		play();
 	}
 
 	public void guiSetUp() {
-		
+		play();
 		// Initializing JFrame
-		frame = new JFrame("MacMoney vAngry_Wasp");
+		frame = new JFrame("MacMoney vDancing_Wasp");
 		frame.setSize(640, 600);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -186,7 +185,6 @@ public class UI implements ActionListener, Runnable {
 		}
 		if (e.getActionCommand().equals("computerStoreButtonClicked")) {
 			clip.stop();
-			clip.loop(0);
 			frame.setVisible(false);
 			frame.dispose();
 			ComputerStoreUI test = new ComputerStoreUI();
@@ -228,6 +226,12 @@ public class UI implements ActionListener, Runnable {
 				df.setRoundingMode(RoundingMode.DOWN);
 				userCredits.setText(df.format(userCreditAmount).toString());
 				timeWasted.setText("Time wasted :: " + stopwatch.toString());
+				while(clip.isActive()==false && frame.isVisible())
+				{
+					clip.setFramePosition(0);;
+					clip.start();
+					break;
+				}
 			}
 		}
 
@@ -271,7 +275,6 @@ public class UI implements ActionListener, Runnable {
 			  clip = AudioSystem.getClip();
 			  clip.open(audioStream);
 			  clip.start();
-			  clip.loop(Clip.LOOP_CONTINUOUSLY);
 		  } catch (Exception e) {
 			  System.err.println(e.getMessage());
 		  }
