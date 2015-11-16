@@ -9,10 +9,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.Runnable;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.Base64;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 
@@ -23,11 +32,14 @@ public class UI implements ActionListener, Runnable {
 	static JPanel gamePanel;
 	static JLabel userCredits, userCreditsPassive, timeWasted;
 	static JButton creditClicker, computerStoreButton, developmentTeamButton,
-			devTeamCredits;
+			devTeamCredits, load, save;
+	static JFileChooser chooseFile;
 	public static int coderCreditAmount; // Value of clicking creditClicker
 	public static double userCreditAmount = 0;
 	public static double pci=0.01; // Passive Credit Increase; Initialization
 	static boolean abc = true;
+	File tempFile;
+	PrintWriter writer;
 	
 	static Color one;
 	static Color two;
@@ -168,6 +180,37 @@ public class UI implements ActionListener, Runnable {
 		devTeamCredits.setVisible(true);
 		gamePanel.add(devTeamCredits);
 		frame.setVisible(true);
+		
+		load = new JButton("Load Game");
+		load.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		load.setBounds(30,100,100,50);
+		/**
+		 * SetSize + Location no longer needed. Now using setBounds()
+		 */
+		//computerStoreButton.setSize(205, 100);
+		//computerStoreButton.setLocation(0, 480);
+		load.setActionCommand("loadClicked");
+		load.addActionListener(this);
+		load.setFocusable(false);
+		load.setVisible(true);
+		gamePanel.add(load);
+		
+		save = new JButton("Save Game");
+		save.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		save.setBounds(30,150,100,50);
+		/**
+		 * SetSize + Location no longer needed. Now using setBounds()
+		 */
+		//computerStoreButton.setSize(205, 100);
+		//computerStoreButton.setLocation(0, 480);
+		save.setActionCommand("saveClicked");
+		save.addActionListener(this);
+		save.setFocusable(false);
+		save.setVisible(true);
+		gamePanel.add(save);
+		
+		//JFileChooser
+		chooseFile = new JFileChooser();
 	}
 
 	public static void main(String args[]){
@@ -176,7 +219,7 @@ public class UI implements ActionListener, Runnable {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e){
 		if (e.getActionCommand().equals("creditClickerClicked")) {
 			userCreditAmount += coderCreditAmount;
 			DecimalFormat df = new DecimalFormat("##.##");
@@ -208,12 +251,30 @@ public class UI implements ActionListener, Runnable {
 			test.creditsGUI();
 			test.setVisibility(true);
 		}
-
+		if (e.getActionCommand().equals("loadClicked")) {
+			
+			try {
+				openFile();
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+		}
+		if (e.getActionCommand().equals("saveClicked")) {
+			
+			try {
+				createFile();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 	}
 
 	public void setVisibility(boolean a) {
 		frame.setVisible(a);
-
 	}
 
 	@SuppressWarnings("static-access")
@@ -278,8 +339,86 @@ public class UI implements ActionListener, Runnable {
 		  } catch (Exception e) {
 			  System.err.println(e.getMessage());
 		  }
-		 }
-		 
 	}
+	
+	public void openFile() throws FileNotFoundException
+	{
+		File infile = null;
+		@SuppressWarnings("unused")
+		FileReader reader = null;
+		String s = null;
+		if(chooseFile.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+		{
+			infile = chooseFile.getSelectedFile();
+			reader = new FileReader(infile);
+			Scanner input = new Scanner(infile);
+			while(input.hasNextLine())
+			{
+				s = input.nextLine();
+				if(s.equals("MacMoneySAVEFILE"))
+				{
+					byte[] encoded = input.nextLine().getBytes();
+					byte[] decoded = null;
+					String result = null;
+					try {
+						decoded = Base64.getDecoder().decode(encoded);
+						result = new String(decoded, "UTF-8");
+						userCreditAmount = Double.parseDouble(result.substring(result.indexOf("Credit Amount :: ")+17, result.indexOf(".")));
+						double localPci = Double.parseDouble(result.substring(result.indexOf("Generation Amount :: ")+21, result.lastIndexOf(".")+3));
+						setPCI(localPci);
+						userCreditsPassive.setText("Generating "+String.valueOf(getPCI()) + "/per second");
+					}
+					catch(IllegalArgumentException e){
+						
+						JOptionPane.showMessageDialog(null, "Unsupported Save File\n(Either the contents are corrupted, or the file has been edited)", "Error!", JOptionPane.ERROR_MESSAGE);
+					}
+					catch (UnsupportedEncodingException e) {
+						
+						JOptionPane.showMessageDialog(null, "Unsupported Save File\n(Either the contents are corrupted, or the file has been edited)", "Error!", JOptionPane.ERROR_MESSAGE);
+					}
+					input.close();
+					break;
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Not a valid save file!", "Error!", JOptionPane.ERROR_MESSAGE);
+					break;
+				}
+			}
+		}
+	}
+	
+	public void createFile() throws FileNotFoundException, UnsupportedEncodingException
+	{
+        tempFile = new File("MacMoneySAVEFILETEMP.txt");
+        writer = new PrintWriter(tempFile.getName(), "UTF-8");
+        writer.println("MacMoneySAVEFILE");
+    	writer.println("Credit Amount :: " + userCreditAmount);
+    	writer.println("Generation Amount :: " + pci);
+    	writer.close();
+    	File file = new File("MacMoneySAVEFILE.txt");
+    	PrintWriter secondWriter = new PrintWriter(file.getName(), "UTF-8");
+    	secondWriter.println("MacMoneySAVEFILE");
+    	secondWriter.println(encodeFileToBase64Binary(tempFile));
+    	secondWriter.close();
+    	tempFile.delete();
+	}
+	
+	private String encodeFileToBase64Binary(File file){
+	    String encodedfile = null;
+	    try {
+	        FileInputStream fileInputStreamReader = new FileInputStream(file);
+	        byte[] bytes = new byte[(int)file.length()];
+	        fileInputStreamReader.read(bytes);
+	        encodedfile = Base64.getEncoder().encodeToString(bytes);
+	        fileInputStreamReader.close();
+	    } catch (FileNotFoundException e) {
+	        e.printStackTrace();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	     
+	    return encodedfile;
+	}
+}
 
 
