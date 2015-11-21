@@ -27,8 +27,6 @@ public class Credits implements ActionListener {
 	}
 
 	public void creditsGUI() {
-		@SuppressWarnings("unused")
-		UI color = new UI();
 
 		frame = new JFrame("Credits");
 		frame.setVisible(false);
@@ -66,7 +64,7 @@ public class Credits implements ActionListener {
 		title.setVisible(true);
 		gamePanel.add(title);
 		
-		versionNumber = new JLabel("v1.0.1"); // Version Number of game also displayed in JFrame for UI
+		versionNumber = new JLabel("v. Dynamic Penguin"); // Version Number of game also displayed in JFrame for UI
 		versionNumber.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		versionNumber.setForeground(Color.BLACK);
 		versionNumber.setSize(200, 50);
@@ -74,7 +72,7 @@ public class Credits implements ActionListener {
 		versionNumber.setVisible(true);
 		gamePanel.add(versionNumber);
 		
-		updateDate = new JLabel("Updated: November 9th, 2015");
+		updateDate = new JLabel("Updated: November 21st, 2015");
 		updateDate.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		updateDate.setForeground(Color.BLACK);
 		updateDate.setSize(400, 50);

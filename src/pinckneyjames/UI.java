@@ -49,18 +49,23 @@ public class UI implements ActionListener, Runnable {
 	static Color six;
 	public StopWatch stopwatch;
 	Clip clip;
-	AudioInputStream stream;
+	int cnt = 0;
 
+	/**
+	 * Default Constructor - Fixed issue with the double thread
+	 */
 	public UI(){
-		
-		
+		//Fixed the issue - I messed with it
+		/**
 		if (abc == true) // Don't mess with this, this fixes Thread being run more then once when different windows opened
 		{                // Seriously, if you touch this if statement I'm gonna kill you. 
 			guiSetUp();
 			new Thread(this).start();                       
 			abc = false;
 		}
-		
+		*/
+		guiSetUp();
+		//play();
 		one = new Color(39,24,72);
 		two = new Color(88,56,86);
 		three = new Color(175,90,80);
@@ -69,11 +74,25 @@ public class UI implements ActionListener, Runnable {
 		six = new Color(190,58,62);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	/**
+	 * 
+	 * @param a Makes it so that we do not repeat the same constructor over and over
+	 */
+	public UI(boolean a){
+			new Thread(this).start(); 
+			guiSetUp();
+			one = new Color(39,24,72);
+			two = new Color(88,56,86);
+			three = new Color(175,90,80);
+			four = new Color(235,154,93);
+			five = new Color(253,226,130);
+			six = new Color(190,58,62);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
 
 	public void guiSetUp() {
-		play();
 		// Initializing JFrame
-		frame = new JFrame("MacMoney vDancing_Wasp");
+		frame = new JFrame("MacMoney vDynamic Penguin");
 		frame.setSize(640, 600);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -214,7 +233,7 @@ public class UI implements ActionListener, Runnable {
 	}
 
 	public static void main(String args[]){
-		new UI();
+		new UI(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
@@ -227,26 +246,23 @@ public class UI implements ActionListener, Runnable {
 			userCredits.setText(formattedText);
 		}
 		if (e.getActionCommand().equals("computerStoreButtonClicked")) {
-			clip.stop();
 			frame.setVisible(false);
-			frame.dispose();
+			frame.removeAll();
 			ComputerStoreUI test = new ComputerStoreUI();
 			test.cpuGUI();
 			test.setVisibility(true);
 		}
 		if (e.getActionCommand().equals("developmentTeamButtonClicked")) {
-			clip.stop();
 			frame.setVisible(false);
-			frame.dispose();
+			frame.removeAll();
 			DevelopmentTeamUI test = new DevelopmentTeamUI();
 			test.devGUI();
 			test.setVisibility(true);
 
 		}
 		if (e.getActionCommand().equals("devTeamCreditsClicked")) {
-			clip.stop();
 			frame.setVisible(false);
-			frame.dispose();
+			frame.removeAll();
 			Credits test = new Credits();
 			test.creditsGUI();
 			test.setVisibility(true);
@@ -285,13 +301,11 @@ public class UI implements ActionListener, Runnable {
 				userCreditAmount += pci;
 				DecimalFormat df = new DecimalFormat("##.##");
 				df.setRoundingMode(RoundingMode.DOWN);
-				userCredits.setText(df.format(userCreditAmount).toString());
 				timeWasted.setText("Time wasted :: " + stopwatch.toString());
-				while(clip.isActive()==false && frame.isVisible())
+				userCredits.setText(df.format(userCreditAmount).toString());
+				if(stopwatch.getNanoTime() <= 860000000 || (clip.getMicrosecondPosition() == clip.getMicrosecondLength()))
 				{
-					clip.setFramePosition(0);;
-					clip.start();
-					break;
+					play();
 				}
 			}
 		}
@@ -330,11 +344,104 @@ public class UI implements ActionListener, Runnable {
 	
 	public void play() {
 		  try {
-			  InputStream audioSrc = getClass().getResourceAsStream("MacMoneySound.wav");
-			  BufferedInputStream bufferedIn = new BufferedInputStream(audioSrc);
-			  AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedIn);
-			  clip = AudioSystem.getClip();
-			  clip.open(audioStream);
+			  if(cnt == 0)
+			  {
+				InputStream jakeSong = getClass().getResourceAsStream("MacMoneySound.wav");
+				BufferedInputStream bufferedIn = new BufferedInputStream(jakeSong);
+			    AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedIn);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 1)
+			  {
+				InputStream HavenBleeding = getClass().getResourceAsStream("Haven - Bleeding Through.wav");
+				BufferedInputStream bufferedInJake = new BufferedInputStream(HavenBleeding);
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 2)
+			  {
+				InputStream JskeeIAm = getClass().getResourceAsStream("Jskee - I Am Pharaoh .wav");
+				BufferedInputStream bufferedInJake = new BufferedInputStream(JskeeIAm);
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 3)
+			  {
+				InputStream KozoroASpring = getClass().getResourceAsStream("Kozoro - A Spring Without You (feat. Noctilucent).wav");
+				BufferedInputStream bufferedInJake = new BufferedInputStream(KozoroASpring);
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 4)
+			  {
+				InputStream KozoroRyzu = getClass().getResourceAsStream("Kozoro, Ryzu, Unison _ Evence - Ascend.wav");
+				BufferedInputStream bufferedInJake = new BufferedInputStream(KozoroRyzu);
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 5)
+			  {
+				InputStream RyzuUnison = getClass().getResourceAsStream("Ryzu _ Unison - Midway.wav");
+				BufferedInputStream bufferedInJake = new BufferedInputStream(RyzuUnison);
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 6)
+			  {
+				InputStream tiasuThorn = getClass().getResourceAsStream("tiasu - Thorn.wav");
+				BufferedInputStream bufferedInJake = new BufferedInputStream(tiasuThorn);
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 7)
+			  {
+				InputStream WiseYoung1 = getClass().getResourceAsStream("Wise Young Gent - A New Beginning.wav");
+				BufferedInputStream bufferedInJake = new BufferedInputStream(WiseYoung1);
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 8)
+			  {
+				InputStream WiseYoung2 = getClass().getResourceAsStream("Wise Young Gent - Destiny.wav");
+				BufferedInputStream bufferedInJake = new BufferedInputStream(WiseYoung2);
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				cnt++;
+			  }
+			  else if(cnt == 9)
+			  {
+				  InputStream SavantSplinter = getClass().getResourceAsStream("Savant - Splinter.wav");
+				  BufferedInputStream bufferedInJake = new BufferedInputStream(SavantSplinter);
+				  AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				  clip = AudioSystem.getClip();
+				  clip.open(audioStream);
+				  cnt=0;
+			  }
+			  else {
+				  InputStream SavantSplinter = getClass().getResourceAsStream("Savant - Splinter.wav");
+				  BufferedInputStream bufferedInJake = new BufferedInputStream(SavantSplinter);
+				  AudioInputStream audioStream = AudioSystem.getAudioInputStream((InputStream) bufferedInJake);
+				  clip = AudioSystem.getClip();
+				  clip.open(audioStream);
+				  cnt=0;
+			  }
 			  clip.start();
 		  } catch (Exception e) {
 			  System.err.println(e.getMessage());
@@ -420,5 +527,3 @@ public class UI implements ActionListener, Runnable {
 	    return encodedfile;
 	}
 }
-
-

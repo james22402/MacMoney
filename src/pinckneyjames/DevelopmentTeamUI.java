@@ -33,8 +33,6 @@ public class DevelopmentTeamUI implements ActionListener {
 	}
 
 	public void devGUI() {
-		@SuppressWarnings("unused")
-		UI color = new UI();
 
 		frame = new JFrame("Development Store");
 		frame.setVisible(false);

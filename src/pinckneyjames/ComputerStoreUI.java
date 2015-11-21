@@ -32,7 +32,6 @@ public class ComputerStoreUI implements ActionListener {
 	}
 
 	public void cpuGUI() {
-		//UI color = new UI();
 
 		// Computer Store JFrame
 		frame = new JFrame("Computer Store");
