@@ -226,6 +226,7 @@ public class DevelopmentTeamUI implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		UI test1 = new UI();
+		test1.setVisibility(false);
 		if (e.getActionCommand().equals("goBackButtonClicked")) {
 			frame.setVisible(false);
 			frame.dispose();
@@ -235,8 +236,8 @@ public class DevelopmentTeamUI implements ActionListener {
 		} else if (e.getActionCommand().equals("buyItem1")) {
 
 			if (test1.getUserCreditAmount() >= 1250) {
-				UI.coderCreditAmount += 2;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(2 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 1250);
 				frame.setVisible(false);
@@ -249,8 +250,8 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem2")) {
 			if (test1.getUserCreditAmount() >= 3250) {
-				UI.coderCreditAmount += 5;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(5 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 3250);
 				frame.setVisible(false);
@@ -263,8 +264,8 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem3")) {
 			if (test1.getUserCreditAmount() >= 9250) {
-				UI.coderCreditAmount += 25;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(25 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 9250);
 				frame.setVisible(false);
@@ -277,8 +278,8 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem4")) {
 			if (test1.getUserCreditAmount() >= 13000) {
-				UI.coderCreditAmount += 85;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(85 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 13000);
 				frame.setVisible(false);
@@ -291,8 +292,8 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem5")) {
 			if (test1.getUserCreditAmount() >= 31500) {
-				UI.coderCreditAmount += 210;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(210 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 31500);
 				frame.setVisible(false);
@@ -305,8 +306,8 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem6")) {
 			if (test1.getUserCreditAmount() >= 100000) {
-				UI.coderCreditAmount += 475;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(475 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 100000);
 				frame.setVisible(false);
@@ -319,8 +320,8 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem7")) {
 			if (test1.getUserCreditAmount() >= 375000) {
-				UI.coderCreditAmount += 1000;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(1000 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 375000);
 				frame.setVisible(false);
@@ -333,8 +334,8 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem8")) {
 			if (test1.getUserCreditAmount() >= 1800000) {
-				UI.coderCreditAmount += 2000;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(2000 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 1800000);
 				frame.setVisible(false);
@@ -347,8 +348,8 @@ public class DevelopmentTeamUI implements ActionListener {
 			 }
 		} else if (e.getActionCommand().equals("buyItem9")) {
 			if (test1.getUserCreditAmount() >= 25000000) {
-				UI.coderCreditAmount += 5000;
-				UI.creditClicker.setText(String.valueOf(UI.coderCreditAmount)
+				test1.setcoderCreditAmount(5000 + (int)test1.getcoderCreditAmount());
+				UI.creditClicker.setText(String.valueOf(test1.getcoderCreditAmount())
 						+ "$ Credit");
 				test1.setUserCreditAmount(test1.getUserCreditAmount() - 25000000);
 				frame.setVisible(false);

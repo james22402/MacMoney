@@ -23,8 +23,6 @@ import java.text.DecimalFormat;
 import java.util.Base64;
 import java.util.Scanner;
 
-import javax.swing.JFrame;
-
 import org.apache.commons.lang3.time.StopWatch;
 
 public class UI implements ActionListener, Runnable {
@@ -34,8 +32,8 @@ public class UI implements ActionListener, Runnable {
 	static JButton creditClicker, computerStoreButton, developmentTeamButton,
 			devTeamCredits, load, save;
 	static JFileChooser chooseFile;
-	public static int coderCreditAmount; // Value of clicking creditClicker
-	public static double userCreditAmount = 0;
+	public static int coderCreditAmount=1; // Value of clicking creditClicker
+	public static double userCreditAmount = 2000000;
 	public static double pci=0.01; // Passive Credit Increase; Initialization
 	static boolean abc = true;
 	File tempFile;
@@ -122,7 +120,7 @@ public class UI implements ActionListener, Runnable {
 		//userCredits.setLocation(270, 25);
 		gamePanel.add(userCredits);
 
-		timeWasted = new JLabel("Time wasted :: " + stopwatch.toString());
+		timeWasted = new JLabel("Time wasted :: " + stopwatch.toString().substring(0, stopwatch.toString().length()-4));
 		timeWasted.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		timeWasted.setForeground(Color.BLUE);
 		timeWasted.setBounds(0,0,450,50);
@@ -142,7 +140,6 @@ public class UI implements ActionListener, Runnable {
 		gamePanel.add(userCreditsPassive);
 
 		// JButtons
-		coderCreditAmount = 1;
 		creditClicker = new JButton(coderCreditAmount + "$ Credit");
 		creditClicker.setFont(new Font("Monospaced", Font.PLAIN, 32));
 		creditClicker.setBounds(160,125,305,250);
@@ -298,10 +295,10 @@ public class UI implements ActionListener, Runnable {
 		try {
 			while (true) {
 				Thread.currentThread().sleep(1000);
+				timeWasted.setText("Time wasted :: " + stopwatch.toString().substring(0, stopwatch.toString().length()-4));
 				userCreditAmount += pci;
 				DecimalFormat df = new DecimalFormat("##.##");
 				df.setRoundingMode(RoundingMode.DOWN);
-				timeWasted.setText("Time wasted :: " + stopwatch.toString());
 				userCredits.setText(df.format(userCreditAmount).toString());
 				if(stopwatch.getNanoTime() <= 860000000 || (clip.getMicrosecondPosition() == clip.getMicrosecondLength()))
 				{
@@ -332,7 +329,7 @@ public class UI implements ActionListener, Runnable {
 	{
 		this.pci = pci;
 	}
-	public double getcoderCreditAmount()
+	public int getcoderCreditAmount()
 	{
 		return coderCreditAmount;
 	}
@@ -484,6 +481,7 @@ public class UI implements ActionListener, Runnable {
 						JOptionPane.showMessageDialog(null, "Unsupported Save File\n(Either the contents are corrupted, or the file has been edited)", "Error!", JOptionPane.ERROR_MESSAGE);
 					}
 					input.close();
+					JOptionPane.showMessageDialog(null, "FileLoaded Successfully!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 					break;
 				}
 				else {
@@ -508,6 +506,7 @@ public class UI implements ActionListener, Runnable {
     	secondWriter.println(encodeFileToBase64Binary(tempFile));
     	secondWriter.close();
     	tempFile.delete();
+    	JOptionPane.showMessageDialog(null, "File Created at :: " + file.getAbsolutePath(), "Success!", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	private String encodeFileToBase64Binary(File file){
