@@ -231,6 +231,7 @@ public class ComputerStoreUI implements ActionListener {
 	// Handles the button commands to buy upgrades
 	public void actionPerformed(ActionEvent e) {
 		UI test1 = new UI();
+		test1.setVisibility(false);
 		if (e.getActionCommand().equals("goBackButtonClicked")) {
 			frame.setVisible(false);
 			frame.dispose();
