@@ -33,8 +33,8 @@ public class UI implements ActionListener, Runnable {
 			devTeamCredits, load, save;
 	static JFileChooser chooseFile;
 	public static int coderCreditAmount=1; // Value of clicking creditClicker
-	public static double userCreditAmount = 2000000;
-	public static double pci=0.01; // Passive Credit Increase; Initialization
+	public static double userCreditAmount = 0;
+	public static double pci=0.0; // Passive Credit Increase; Initialization
 	static boolean abc = true;
 	File tempFile;
 	PrintWriter writer;
@@ -47,7 +47,7 @@ public class UI implements ActionListener, Runnable {
 	static Color six;
 	public StopWatch stopwatch;
 	Clip clip;
-	int cnt = 0;
+	int cnt = 9;
 
 	/**
 	 * Default Constructor - Fixed issue with the double thread
@@ -300,7 +300,7 @@ public class UI implements ActionListener, Runnable {
 				DecimalFormat df = new DecimalFormat("##.##");
 				df.setRoundingMode(RoundingMode.DOWN);
 				userCredits.setText(df.format(userCreditAmount).toString());
-				if(stopwatch.getNanoTime() <= 860000000 || (clip.getMicrosecondPosition() == clip.getMicrosecondLength()))
+				if(stopwatch.getNanoTime() <= 1000000000 || (clip.getMicrosecondPosition() == clip.getMicrosecondLength()))
 				{
 					play();
 				}
@@ -308,6 +308,7 @@ public class UI implements ActionListener, Runnable {
 		}
 
 		catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
